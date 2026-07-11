@@ -4,6 +4,8 @@ import joblib
 from huggingface_hub import HfApi
 import os
 import numpy as np
+import sklearn
+import sys
 
 # --- Configuration for Model Loading ---
 PROCESSED_HF_MODEL_ID = "Yesh0608/data-model" # Derived from previous steps
@@ -15,6 +17,11 @@ st.set_page_config(page_title="Wellness Tourism Package Prediction", layout="cen
 
 st.title("🌴 Wellness Tourism Package Prediction")
 st.write("Enter customer details to predict if they will purchase the Wellness Tourism Package.")
+
+# --- Diagnostic Info ---
+st.sidebar.subheader("Deployment Info")
+st.sidebar.write(f"Python Version: {sys.version}")
+st.sidebar.write(f"Scikit-learn Version: {sklearn.__version__}")
 
 # --- Load Model from Hugging Face Model Hub ---
 @st.cache_resource
